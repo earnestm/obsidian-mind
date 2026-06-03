@@ -6,13 +6,22 @@ import { routing } from '@/i18n/routing';
 
 type Props = { params: Promise<{ locale: string; authorId: string }> };
 
+const ALL_AUTHOR_IDS = [
+  // en
+  'austen', 'bronte', 'doyle', 'joyce', 'fielding', 'woolf',
+  // fr
+  'flaubert', 'maupassant', 'zola', 'sand', 'colette',
+  // de
+  'kafka', 'goethe', 'mann', 'droste',
+  // it
+  'verga', 'manzoni', 'pirandello', 'deledda',
+  // sr
+  'njegos', 'karadzic', 'sekulic',
+];
+
 export async function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    ['austen', 'bronte', 'doyle', 'joyce', 'fielding', 'woolf',
-     'flaubert', 'maupassant', 'zola',
-     'kafka', 'goethe', 'mann',
-     'verga', 'manzoni', 'pirandello',
-     'njegos', 'karadzic'].map((authorId) => ({ locale, authorId })),
+    ALL_AUTHOR_IDS.map((authorId) => ({ locale, authorId })),
   );
 }
 

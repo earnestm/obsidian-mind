@@ -12,6 +12,8 @@ export interface Author {
   years: string;
   nationality: string;
   knownFor: string;
+  /** Optional portrait — place at /public/authors/{id}.jpg */
+  image?: string;
   snippets: Snippet[];
 }
 

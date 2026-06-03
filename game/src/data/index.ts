@@ -14,35 +14,40 @@ const authorLoaders: Record<Locale, () => Promise<Author[]>> = {
     return [austen, bronte, doyle, joyce, fielding, woolf];
   },
   fr: async () => {
-    const [flaubert, maupassant, zola] = await Promise.all([
+    const [flaubert, maupassant, zola, sand, colette] = await Promise.all([
       import('./fr/flaubert').then((m) => m.default),
       import('./fr/maupassant').then((m) => m.default),
       import('./fr/zola').then((m) => m.default),
+      import('./fr/sand').then((m) => m.default),
+      import('./fr/colette').then((m) => m.default),
     ]);
-    return [flaubert, maupassant, zola];
+    return [flaubert, maupassant, zola, sand, colette];
   },
   de: async () => {
-    const [kafka, goethe, mann] = await Promise.all([
+    const [kafka, goethe, mann, droste] = await Promise.all([
       import('./de/kafka').then((m) => m.default),
       import('./de/goethe').then((m) => m.default),
       import('./de/mann').then((m) => m.default),
+      import('./de/droste').then((m) => m.default),
     ]);
-    return [kafka, goethe, mann];
+    return [kafka, goethe, mann, droste];
   },
   it: async () => {
-    const [verga, manzoni, pirandello] = await Promise.all([
+    const [verga, manzoni, pirandello, deledda] = await Promise.all([
       import('./it/verga').then((m) => m.default),
       import('./it/manzoni').then((m) => m.default),
       import('./it/pirandello').then((m) => m.default),
+      import('./it/deledda').then((m) => m.default),
     ]);
-    return [verga, manzoni, pirandello];
+    return [verga, manzoni, pirandello, deledda];
   },
   sr: async () => {
-    const [njegos, karadzic] = await Promise.all([
+    const [njegos, karadzic, sekulic] = await Promise.all([
       import('./sr/njegos').then((m) => m.default),
       import('./sr/karadzic').then((m) => m.default),
+      import('./sr/sekulic').then((m) => m.default),
     ]);
-    return [njegos, karadzic];
+    return [njegos, karadzic, sekulic];
   },
 };
 
