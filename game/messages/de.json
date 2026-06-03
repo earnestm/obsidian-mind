@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Echt oder KI? Die Literatur-Herausforderung",
+    "description": "Können Sie echte Literatur von KI-generiertem Text unterscheiden?"
+  },
+  "home": {
+    "headline": "Echt oder KI?",
+    "tagline": "Können Sie authentische Literatur von KI-Imitation unterscheiden?",
+    "subtitle": "Wir zeigen Ihnen ~200 Wörter im Stil eines berühmten Autors. Sie entscheiden: echter Text aus dem Originalwerk oder von einer KI generiert.",
+    "chooseLanguage": "Sprache wählen",
+    "chooseAuthor": "Autor wählen",
+    "or": "oder",
+    "randomChallenge": "Zufällige Herausforderung",
+    "play": "Spielen",
+    "authors": "Autoren",
+    "rounds": "10 Runden pro Spiel"
+  },
+  "game": {
+    "round": "Runde",
+    "of": "von",
+    "authorLabel": "Im Stil von",
+    "question": "Ist dieser Text echte Literatur oder von einer KI generiert?",
+    "btnReal": "Echte Literatur",
+    "btnAI": "KI-generiert",
+    "correct": "Richtig!",
+    "wrong": "Falsch!",
+    "wasReal": "Das war echt — aus",
+    "wasAI": "Das war KI-generiert",
+    "hint": "Woran man es erkennt:",
+    "next": "Nächste Runde",
+    "finish": "Ergebnisse sehen"
+  },
+  "results": {
+    "title": "Ihr Ergebnis",
+    "perfect": "Perfekt! Sie sind ein literarischer Detektiv.",
+    "excellent": "Ausgezeichnet — Sie haben ein scharfes literarisches Auge.",
+    "good": "Gutes Ergebnis — die KI hat Sie einige Male getäuscht.",
+    "fair": "Nicht schlecht — das ist wirklich schwierig.",
+    "poor": "Die KI hat Sie gut getäuscht — nochmal versuchen?",
+    "playAgain": "Nochmal spielen",
+    "changeAuthor": "Autor wechseln",
+    "home": "Startseite",
+    "outOf": "von",
+    "rounds": "Runden richtig"
+  },
+  "nav": {
+    "changeLanguage": "Sprache"
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "sr": "Srpski"
+  }
+}

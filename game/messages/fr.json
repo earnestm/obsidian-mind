@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Réel ou IA ? Le défi littéraire",
+    "description": "Pouvez-vous distinguer la vraie littérature du texte généré par l'IA ?"
+  },
+  "home": {
+    "headline": "Réel ou IA ?",
+    "tagline": "Saurez-vous distinguer la littérature authentique de l'imitation par l'IA ?",
+    "subtitle": "Nous vous montrerons ~200 mots dans le style d'un auteur célèbre. Vous décidez : texte authentique de l'œuvre originale, ou généré par une IA.",
+    "chooseLanguage": "Choisissez votre langue",
+    "chooseAuthor": "Choisissez un auteur",
+    "or": "ou",
+    "randomChallenge": "Défi aléatoire",
+    "play": "Jouer",
+    "authors": "auteurs",
+    "rounds": "10 manches par partie"
+  },
+  "game": {
+    "round": "Manche",
+    "of": "sur",
+    "authorLabel": "Dans le style de",
+    "question": "Ce texte est-il de la vraie littérature ou généré par une IA ?",
+    "btnReal": "Littérature authentique",
+    "btnAI": "Généré par IA",
+    "correct": "Correct !",
+    "wrong": "Incorrect !",
+    "wasReal": "C'était authentique — extrait de",
+    "wasAI": "C'était généré par une IA",
+    "hint": "Comment le reconnaître :",
+    "next": "Manche suivante",
+    "finish": "Voir les résultats"
+  },
+  "results": {
+    "title": "Votre score",
+    "perfect": "Parfait ! Vous êtes un vrai détective littéraire.",
+    "excellent": "Excellent — vous avez l'œil littéraire aiguisé.",
+    "good": "Bon résultat — l'IA vous a trompé quelques fois.",
+    "fair": "Pas mal — c'est vraiment difficile.",
+    "poor": "L'IA vous a bien eu — essayez encore ?",
+    "playAgain": "Rejouer",
+    "changeAuthor": "Changer d'auteur",
+    "home": "Accueil",
+    "outOf": "sur",
+    "rounds": "manches réussies"
+  },
+  "nav": {
+    "changeLanguage": "Langue"
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "sr": "Srpski"
+  }
+}

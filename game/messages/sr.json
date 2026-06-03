@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Pravo ili VI? Književni izazov",
+    "description": "Možete li razlikovati pravu književnost od teksta koji je generisala veštačka inteligencija?"
+  },
+  "home": {
+    "headline": "Pravo ili VI?",
+    "tagline": "Možete li razlikovati autentičnu književnost od imitacije veštačke inteligencije?",
+    "subtitle": "Prikazaćemo vam ~200 reči u stilu poznatog pisca. Vi odlučujete: autentičan tekst iz originalnog dela ili generisano od strane VI.",
+    "chooseLanguage": "Izaberite jezik",
+    "chooseAuthor": "Izaberite pisca",
+    "or": "ili",
+    "randomChallenge": "Nasumični izazov",
+    "play": "Igraj",
+    "authors": "pisaca",
+    "rounds": "10 rundi po igri"
+  },
+  "game": {
+    "round": "Runda",
+    "of": "od",
+    "authorLabel": "U stilu",
+    "question": "Da li je ovaj tekst prava književnost ili ga je generisala VI?",
+    "btnReal": "Prava književnost",
+    "btnAI": "Generisano od VI",
+    "correct": "Tačno!",
+    "wrong": "Netačno!",
+    "wasReal": "Ovo je bilo autentično — iz",
+    "wasAI": "Ovo je generisala veštačka inteligencija",
+    "hint": "Kako se prepoznaje:",
+    "next": "Sledeća runda",
+    "finish": "Pogledaj rezultate"
+  },
+  "results": {
+    "title": "Vaš rezultat",
+    "perfect": "Savršeno! Vi ste pravi književni detektiv.",
+    "excellent": "Odlično — imate oštar književni pogled.",
+    "good": "Dobar rezultat — VI vas je nekoliko puta prevarila.",
+    "fair": "Nije loše — ovo je zaista teško.",
+    "poor": "VI vas je dobro prevarila — pokušajte ponovo?",
+    "playAgain": "Igraj ponovo",
+    "changeAuthor": "Promeni pisca",
+    "home": "Početna",
+    "outOf": "od",
+    "rounds": "rundi tačno"
+  },
+  "nav": {
+    "changeLanguage": "Jezik"
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "sr": "Srpski"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "Reale o IA? La sfida letteraria",
+    "description": "Riesci a distinguere la vera letteratura dal testo generato dall'IA?"
+  },
+  "home": {
+    "headline": "Reale o IA?",
+    "tagline": "Sai distinguere la letteratura autentica dall'imitazione dell'IA?",
+    "subtitle": "Ti mostreremo ~200 parole nello stile di un famoso autore. Decidi tu: testo autentico dall'opera originale o generato da un'IA.",
+    "chooseLanguage": "Scegli la tua lingua",
+    "chooseAuthor": "Scegli un autore",
+    "or": "oppure",
+    "randomChallenge": "Sfida casuale",
+    "play": "Gioca",
+    "authors": "autori",
+    "rounds": "10 round per partita"
+  },
+  "game": {
+    "round": "Round",
+    "of": "di",
+    "authorLabel": "Nello stile di",
+    "question": "Questo testo è letteratura autentica o generato dall'IA?",
+    "btnReal": "Letteratura autentica",
+    "btnAI": "Generato da IA",
+    "correct": "Corretto!",
+    "wrong": "Sbagliato!",
+    "wasReal": "Era autentico — da",
+    "wasAI": "Era generato dall'IA",
+    "hint": "Come riconoscerlo:",
+    "next": "Round successivo",
+    "finish": "Vedi i risultati"
+  },
+  "results": {
+    "title": "Il tuo punteggio",
+    "perfect": "Perfetto! Sei un vero detective letterario.",
+    "excellent": "Eccellente — hai un occhio letterario acuto.",
+    "good": "Buon risultato — l'IA ti ha ingannato qualche volta.",
+    "fair": "Non male — è davvero difficile.",
+    "poor": "L'IA ti ha fregato — riprova?",
+    "playAgain": "Gioca ancora",
+    "changeAuthor": "Cambia autore",
+    "home": "Home",
+    "outOf": "su",
+    "rounds": "round corretti"
+  },
+  "nav": {
+    "changeLanguage": "Lingua"
+  },
+  "languages": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "sr": "Srpski"
+  }
+}
