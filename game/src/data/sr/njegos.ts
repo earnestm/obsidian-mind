@@ -112,75 +112,82 @@ const author: Author = {
     {
       id: 'njegos-ai1',
       text: `Владика Данило:
-Браћо моја, дошло је вријеме
-да се одлучимо: ко смо и шта смо.
-Нијесмо ли ми Срби јунаци
-који смо бранили слободу своју
-вековима против тамних сила?
-Нијесмо ли крвљу купили право
-да живимо слободни на земљи?
-Ако јесмо — онда нека знамо
-да ово није тренутак слабости,
-него тренутак највеће снаге.
-Устајте, браћо, час је ударио!
-Ко не устане данас са нама,
-нека зна да је издао крв
-свих оних који прије нас умрше.`,
+Браћо моја, погледајте ове горе,
+погледајте небо над Црном Гором.
+Ту смо ми одвијек живјели слободни,
+ту смо крвљу своје право стекли.
+Јунаштво је наша вјера стара,
+слобода је наша света дужност.
+Ко изда браћу, изда и Бога,
+ко клекне вражји, клекне душом својом.
+Не бојте се мача ни ватре,
+не бојте се броја ни надмоћи —
+јер је боља честна смерт у боју
+него срамотан живот у ропству.
+Тако нам је образ заповједио,
+тако нам је вјера завјештала.`,
       isAI: true,
-      hint: 'The heroic address lacks Njegoš\'s formulaic specificity: proper names, bird-epithets, geographic anchors (specific villages, specific passes). "Дошло је вријеме да се одлучимо" is a general political rallying cry; Njegoš\'s speeches are always embedded in specific historical situations — the Christmas-night council, the particular apostasy being judged. The oral epic\'s theological weight, its cosmic honor-system, is replaced by more generic patriotic sentiment.',
+      hint: 'This sounds like ChatGPT answering "write a speech by Bishop Danilo." It assembles correct vocabulary — образ, јунаштво, слобода, вјера — but in generic sequence, like a checklist. No specific people are named, no specific event is addressed. The antithesis "честна смерт / срамотан живот" appears in the real text too, but here it arrives as a standalone maxim with no dramatic context. The closing couplet ("тако нам је образ заповједио / тако нам је вјера завјештала") is neat parallel structure that wraps everything up — Njegoš builds toward peaks, not toward tidy summaries.',
     },
     {
       id: 'njegos-ai2',
       text: `Вук Мићуновић:
-Владико, шта је слобода без жртве?
-Праздна ријеч, звук без садржине.
-Ми смо Срби, ми смо Черногорци,
-крв нам тече у жилама истим,
-планине нам стоје под небесима.
-Нека знају Турци и невјерни
-да је боља честна смерт на борби
-него живот у срамоти тешкој.
-Наши оци тако нам завјешташе,
-наши дједи тако нас учише —
-и ми данас по том завјету ходим,
-јер је то наш образ и наш закон,
-јер је то наша вјера и слобода.`,
+Владико, ко се рађа у планини
+тај зна шта значи мраз и камен тврди.
+Ми нијесмо меко рођени,
+нити смо по равници одрасли.
+Свака кап крви наше племенске
+плаћена је у борби и невољи.
+Не жалимо ни живот ни млађаност,
+јер живот без части није живот —
+то је само биједа без образа,
+то је само дисање и ништа.
+Нека знају и пријатељ и душман
+да Мићуновић неће клекнути,
+нити ће му потомство то учинит
+докле год горе стоје и ријеке.`,
       isAI: true,
-      hint: 'The formulaic elements are present — "образ," ancestor-invocation, the contrast of honorable death and shameful life — but deployed without Njegoš\'s specific historical texture. His speeches name clans, battles, specific years; they are addressed to specific interlocutors in a specific dramatic situation. "Праздна ријеч, звук без садржине" is a reasonable gnomic statement, but Njegoš builds his aphorisms through the escalating structure of the oral epic, not through compressed definition.',
+      hint: 'The mountain/plainsman contrast is generic, not anchored to a specific clan or event. "Нека знају и пријатељ и душман" is the kind of symmetrical public-address formula LLMs reach for — announcing to an abstract audience rather than speaking to a specific character in a charged dramatic moment. The passage assembles correct heroic vocabulary (образ, крв, борба) at even emotional temperature throughout, where the real Gorski vijenac builds toward specific peaks of grief or rage through named individuals and events. "Докле год горе стоје и ријеке" is a convenient noble-sounding closure; Njegoš\'s commitments emerge from specific dramatic pressures, not from generic nature imagery.',
     },
     {
       id: 'njegos-ai3',
       text: `Владика Данило:
-Гледам ноћас звезде на небесу,
-бројим их и бројати не могу.
-Тако беше и народа нашег —
-прекривао земљу ка звездице.
-Сад нас мало, па смо ипак јаки,
-јер нас крепи вера и образ наш.
-Нека дође ко год хоће на нас,
-наћи ће ту кланицу и гроб свој,
-наћи ће ту ватру и олујно,
-у планини нашој поноситу.`,
+Тешка је то судбина, браћо моја,
+кад народ плаче и жали за својим.
+Гробови су по свим пољанама,
+мртви јунаци под сваким каменом.
+Али душа народа не умире,
+јер је душа јача него тијело.
+Иза сваке ноћи долази зора,
+иза сваког бола долази снага.
+Ми ћемо опет дигнути главу,
+ми ћемо опет бити оно што смо,
+јер таква је природа слободе —
+она гори јаче кад је угњетавају,
+она расте дубље кад је сломе,
+она живи вјечно у народу правом.`,
       isAI: true,
-      hint: 'The star-counting image is poetically appealing but too literary in its execution — Njegoš\'s celestial imagery is theological and heroic, not elegiac in this pastoral manner. "Бројим их и бројати не могу" is a smooth line, but Njegoš\'s verse is architecturally structured through antithesis and escalating parallelism, not through this kind of lyrical observation. The final boast ("наћи ће ту ватру и олујно") lacks the formulaic specificity — named enemies, named terrain — of the genuine heroic mode.',
+      hint: 'The closing line is the clearest tell: "јер таква је природа слободе" is exactly the kind of thematic summary sentence LLMs add to round off a passage. Njegoš never explains what the nature of something is — he enacts it through dramatic action and image. The rest is smooth but generic: "иза сваке ноћи долази зора" (after every night comes dawn) is a proverb-level cliché. Notice also how the emotions are named — "плаче и жали," "бола," "снага" — rather than shown through the specific physical and dramatic detail that makes the real Gorski vijenac vivid.',
     },
     {
       id: 'njegos-ai4',
       text: `Игуман Стефан:
-Тешка је борба с многобројним светом,
-кад само неколико вас стоји.
-Али јунак није он ко бројем
-надвладава, него ко срцем бди.
-Ми смо мали народ у планини,
-али смо свободан и поносит.
-Слобода се крвљу откупљује
-и она се крвљу задржава.
-Свако племе нека да свог сина,
-свако огњиште нека гори светло —
-па ћемо ми, браћо, бити јаки,
-па ћемо ми с Богом победити!`,
+Немојте мислити да нас је мало,
+браћо моја, чеда Черне Горе.
+Ми нијесмо мало кад је Бог с нама,
+ми нијесмо слаби кад је образ чист.
+Душманин је бројан и надмоћан,
+душманин је богат и моћан веома —
+али душманин нема оно наше
+чиме ми надилазимо сваку силу:
+вјеру праву, слободан дух и образ,
+завјет оцâ и материна молитва.
+Зато стојте и не уступајте,
+зато стојте часно и поштено,
+јер ко стоји с Богом и с образом,
+тај побјеђује и кад погине.`,
       isAI: true,
-      hint: '"Јунак није он ко бројем надвладава, него ко срцем бди" is a correct heroic sentiment but stated as an abstract maxim rather than through the dramatic action in which Njegoš\'s characters embody their code. The Abbot in the real text speaks from specific experience — counting the specific dead of the previous winter. "Свако огњиште нека гори светло" (let every hearth burn bright) is a generic image; Njegoš names specific hearths, specific clans, specific obligations.',
+      hint: 'The Abbot here speaks in perfect motivational-speech rhythm: build up the enemy, then flip it with "али." "Материна молитва" (mother\'s prayer) is a sentimental touch — it sounds traditional but Njegoš\'s Abbot deals in specific numbers and specific deaths, not general maternal feeling. The closing paradox "побјеђује и кад погине" (wins even when he dies) is neatly formulated, the kind of thing you\'d put on a poster. Njegoš\'s paradoxes are more knotted and less comfortable. Also "богат и моћан веома" — the adverb "веома" is modern standard Serbian, not the idiom of Gorski vijenac.',
     },
   ],
 };

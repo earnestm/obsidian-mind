@@ -44,9 +44,9 @@ const author: Author = {
     },
     {
       id: 'karadzic-ai1',
-      text: `Bio je jednom jedan mladi junak koji je živio u malome selu na rubu velike šume. Bio je poznat po svojoj snazi i hrabrosti, ali još više po svojoj dobroti, koja je bila rijetka u tim krajevima. Jednog jutra, dok je junak još spavao, začuo je čudan glas koji ga je zvao iz šume. Ustao je, obukao se, i pošao da vidi ko ga zove. Šuma je bila tiha i tamna, i što je dalje išao, to mu je srdce jače tucalo. Ali on nije okrenuo.`,
+      text: `Bio jedanput jedan siromašan momak, pa nije imao ni konja ni oružja ni ništa. Jednog dana čuo je da daleko u šumi živi vještica koja čuva zakopano blago, i pomisli u sebi: — Što da ne pokušam sreću svoju? — Uzme palicu i krene u šumu. Hodao je dugo, i bijahu mu noge umorne i stomak prazan, ali on nije zastao. Na kraju šume nađe malu kolibu, i pred kolibom stajala starica pa prela. Upita je: — Baka, jesi li ti vještica od blaga? — A starica se nasmiješi i reče mu: — Sjedi, sinko, i odmori se, pa ćemo pričati.`,
       isAI: true,
-      hint: 'The fairy tale formula is missing: there is no "Bio jedanput" opening, no numbered quest, no old man on the road. "Bio poznat po svojoj snazi i hrabrosti, ali još više po svojoj dobroti" over-explains the hero\'s qualities rather than demonstrating them through the action the genre requires. "Srdce jače tucalo" (heart beating harder) is psychological interiority — folk heroes do not report fear internally; they show courage through action. Literary embellishment has replaced formulaic economy.',
+      hint: 'The formula is right — "Bio jedanput," the poor youth, the quest, the road — but look at the details. "Pomisli u sebi" (thought to himself) and "bijahu mu noge umorne i stomak prazan" give us interiority and sensation; the real folk tale would just say "pošao je" and move on. "Bako, jesi li ti vještica od blaga?" is also slightly off — folk-tale characters don\'t ask meta-questions about what kind of creature they\'ve found; the encounter would proceed through the correct ritual formula. The prose is smooth where the folk tale is blunt.',
     },
     {
       id: 'karadzic-ai2',
