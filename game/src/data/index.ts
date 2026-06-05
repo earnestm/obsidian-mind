@@ -3,25 +3,30 @@ import type { Locale } from '@/types/game';
 
 const authorLoaders: Record<Locale, () => Promise<Author[]>> = {
   en: async () => {
-    const [austen, bronte, doyle, joyce, fielding, woolf] = await Promise.all([
+    const [austen, bronte, doyle, joyce, fielding, woolf, twain, hemingway, hammett] = await Promise.all([
       import('./en/austen').then((m) => m.default),
       import('./en/bronte').then((m) => m.default),
       import('./en/doyle').then((m) => m.default),
       import('./en/joyce').then((m) => m.default),
       import('./en/fielding').then((m) => m.default),
       import('./en/woolf').then((m) => m.default),
+      import('./en/twain').then((m) => m.default),
+      import('./en/hemingway').then((m) => m.default),
+      import('./en/hammett').then((m) => m.default),
     ]);
-    return [austen, bronte, doyle, joyce, fielding, woolf];
+    return [austen, bronte, doyle, joyce, fielding, woolf, twain, hemingway, hammett];
   },
   fr: async () => {
-    const [flaubert, maupassant, zola, sand, colette] = await Promise.all([
+    const [flaubert, maupassant, zola, sand, colette, proust, hugo] = await Promise.all([
       import('./fr/flaubert').then((m) => m.default),
       import('./fr/maupassant').then((m) => m.default),
       import('./fr/zola').then((m) => m.default),
       import('./fr/sand').then((m) => m.default),
       import('./fr/colette').then((m) => m.default),
+      import('./fr/proust').then((m) => m.default),
+      import('./fr/hugo').then((m) => m.default),
     ]);
-    return [flaubert, maupassant, zola, sand, colette];
+    return [flaubert, maupassant, zola, sand, colette, proust, hugo];
   },
   de: async () => {
     const [kafka, goethe, mann, droste] = await Promise.all([
