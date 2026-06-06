@@ -20,7 +20,7 @@ function shuffle<T>(arr: T[]): T[] {
 function pickRounds(author: Author): Snippet[] {
   const real = shuffle(author.snippets.filter((s) => !s.isAI));
   const ai   = shuffle(author.snippets.filter((s) => s.isAI));
-  const half = Math.floor(ROUNDS_PER_GAME / 2);
+  const half = Math.ceil(ROUNDS_PER_GAME / 2);
   return shuffle([...real.slice(0, half), ...ai.slice(0, ROUNDS_PER_GAME - half)]);
 }
 

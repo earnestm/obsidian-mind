@@ -27,4 +27,4 @@ export interface RoundState {
 
 export type Locale = 'en' | 'fr' | 'de' | 'it' | 'sr' | 'nf';
 
-export const ROUNDS_PER_GAME = 10;
+export const ROUNDS_PER_GAME = 5;
