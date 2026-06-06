@@ -42,13 +42,16 @@ export default async function HomePage({ params }: Props) {
       {/* Masthead nav */}
       <nav style={{ padding: '14px 20px 0' }}>
         <div className="meta-bar">
-          <span style={{ fontStyle: 'italic' }}>Est. MMXXVI</span>
+          <span style={{ fontStyle: 'italic', letterSpacing: '0.04em', fontSize: '0.78rem' }}>
+            A&nbsp;GAME&nbsp;BY&nbsp;<strong style={{ fontStyle: 'normal', letterSpacing: '0.1em' }}>ALT-TEXT</strong>
+            &ensp;·&ensp;Est.&nbsp;MMXXVI
+          </span>
           <span className="ornament"><i /><i /><i /></span>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
             {languageOptions.map((lang) => (
               <a
                 key={lang.code}
-                href={`/${lang.code === routing.defaultLocale ? '' : lang.code}`}
+                href={`/${lang.code}`}
                 className={`lang-pill${lang.active ? ' active' : ''}`}
               >
                 {lang.label}
@@ -89,7 +92,7 @@ export default async function HomePage({ params }: Props) {
                 <div style={{ width: 54, height: 27, margin: '0 auto 6px', overflow: 'hidden' }}>
                   <SunMark />
                 </div>
-                <div className="sig">Real or AI?</div>
+                <div className="sig">The Forgery Post</div>
                 <div className="meta">Est. MMXXVI</div>
               </div>
             </figure>
