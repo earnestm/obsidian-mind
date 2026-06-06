@@ -2,11 +2,19 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import type { Author, Snippet, GuessResult } from '@/types/game';
+import type { Author, Snippet } from '@/types/game';
 import { ROUNDS_PER_GAME } from '@/types/game';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/types/game';
-import Image from 'next/image';
+
+const RANK_BLURBS: Record<string, string> = {
+  perfect:   'Not a single forgery slipped past you. The machines have lodged a formal complaint.',
+  excellent: "A connoisseur's ear. You could smell a counterfeit across a crowded reading-room.",
+  good:      'Sound judgement, on the whole, with the occasional lapse in taste.',
+  fair:      'The counterfeit found in you a willing — and well-mannered — reader.',
+  poor:      "You bought the machine's prose by the column-inch and asked for more.",
+  terrible:  'It has, in gratitude, named a server farm after you.',
+};
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -24,208 +32,219 @@ function pickRounds(author: Author): Snippet[] {
   return shuffle([...real.slice(0, half), ...ai.slice(0, ROUNDS_PER_GAME - half)]);
 }
 
-interface Props {
-  author: Author;
-  locale: Locale;
-}
+interface AnswerRecord { name: string; isAI: boolean; correct: boolean; }
+
+interface Props { author: Author; locale: Locale; }
 
 export default function GameBoard({ author, locale }: Props) {
   const t  = useTranslations('game');
   const tr = useTranslations('results');
 
-  const rounds = useMemo(() => pickRounds(author), [author]);
-  const [current, setCurrent]   = useState(0);
-  const [guess, setGuess]       = useState<GuessResult>(null);
-  const [score, setScore]       = useState(0);
-  const [done, setDone]         = useState(false);
+  const [replayCount, setReplayCount] = useState(0);
+  const rounds = useMemo(() => pickRounds(author), [author, replayCount]);
+
+  const [current, setCurrent] = useState(0);
+  const [picked,  setPicked]  = useState<'real' | 'fake' | null>(null);
+  const [score,   setScore]   = useState(0);
+  const [done,    setDone]    = useState(false);
+  const [answers, setAnswers] = useState<AnswerRecord[]>([]);
 
   const snippet  = rounds[current];
-  const revealed = guess !== null;
-  const homeLabel = tr('home');
+  const revealed = picked !== null;
+  const isLast   = current + 1 >= ROUNDS_PER_GAME;
 
   const handleGuess = useCallback((isAIGuess: boolean) => {
-    if (revealed) return;
+    if (picked) return;
     const correct = isAIGuess === snippet.isAI;
-    setGuess(correct ? 'correct' : 'wrong');
+    const choice: 'real' | 'fake' = isAIGuess ? 'fake' : 'real';
+    setPicked(choice);
     if (correct) setScore((s) => s + 1);
-  }, [revealed, snippet]);
+    setAnswers((a) => [...a, { name: author.name, isAI: snippet.isAI, correct }]);
+  }, [picked, snippet, author.name]);
 
   const handleNext = useCallback(() => {
-    if (current + 1 >= ROUNDS_PER_GAME) {
-      setDone(true);
-    } else {
-      setCurrent((c) => c + 1);
-      setGuess(null);
-    }
-  }, [current]);
+    if (isLast) { setDone(true); }
+    else { setCurrent((c) => c + 1); setPicked(null); }
+  }, [isLast]);
 
   const handleRestart = useCallback(() => {
-    setCurrent(0); setScore(0); setGuess(null); setDone(false);
+    setCurrent(0); setScore(0); setPicked(null); setDone(false);
+    setAnswers([]); setReplayCount((c) => c + 1);
   }, []);
 
-  const pct = Math.round((score / ROUNDS_PER_GAME) * 100);
+  const rankKey =
+    score === ROUNDS_PER_GAME ? 'perfect' :
+    score === 4               ? 'excellent' :
+    score === 3               ? 'good' :
+    score === 2               ? 'fair' :
+    score === 1               ? 'poor' : 'terrible';
+
   const scoreLabel =
-    pct === 100 ? tr('perfect') :
-    pct >= 80   ? tr('excellent') :
-    pct >= 60   ? tr('good') :
-    pct >= 40   ? tr('fair') :
-                  tr('poor');
+    rankKey === 'perfect'   ? tr('perfect') :
+    rankKey === 'excellent' ? tr('excellent') :
+    rankKey === 'good'      ? tr('good') :
+    rankKey === 'fair'      ? tr('fair') :
+    rankKey === 'poor'      ? tr('poor') :
+                              tr('terrible');
+
+  const correctChoice: 'real' | 'fake' = snippet?.isAI ? 'fake' : 'real';
+
+  const cls = (which: 'real' | 'fake') => {
+    let c = 'choice';
+    if (revealed) {
+      if (which === correctChoice) c += ' is-correct';
+      else if (which === picked)   c += ' is-wrong';
+    }
+    return c;
+  };
 
   /* ─── Results screen ─── */
   if (done) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 animate-fade-in">
-        <div className="w-full max-w-lg text-center border-t-4 border-b-4 border-paper-950 py-12">
-          <p className="font-display text-xs uppercase tracking-[0.3em] text-paper-600 mb-6">
-            {tr('title')}
-          </p>
-          <div className="font-display font-black text-[7rem] leading-none text-paper-950 mb-2">
-            {score}
-            <span className="text-4xl text-paper-500 font-normal">/{ROUNDS_PER_GAME}</span>
+      <div className="page stack" style={{ '--gap': '16px' } as React.CSSProperties}>
+        <div>
+          <div className="meta-bar">
+            <span>Final Edition</span>
+            <span className="ornament"><i /><i /><i /></span>
+            <span>{tr('title')}</span>
           </div>
-          <p className="font-serif text-lg text-paper-700 mb-2">
-            {score} {tr('outOf')} {ROUNDS_PER_GAME} {tr('rounds')}
-          </p>
-          <p className="font-serif italic text-xl text-paper-900 mt-6 mb-10">{scoreLabel}</p>
+          <hr className="rule-double" />
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={handleRestart}
-              className="px-8 py-3 border-2 border-paper-950 bg-paper-950 text-paper-100 font-display font-bold uppercase tracking-widest text-sm hover:bg-paper-800 transition-colors"
-            >
-              {tr('playAgain')}
-            </button>
-            <Link
-              href="/"
-              locale={locale}
-              className="px-8 py-3 border-2 border-paper-950 text-paper-950 font-display font-bold uppercase tracking-widest text-sm text-center hover:bg-paper-950 hover:text-paper-100 transition-colors"
-            >
-              {homeLabel}
-            </Link>
+        <p className="kicker" style={{ marginTop: 2 }}>{tr('title')}</p>
+        <div className="bigscore">{score}<small>/{ROUNDS_PER_GAME}</small></div>
+
+        <div>
+          <hr className="rule-thin" />
+          <h2 className="rank">{scoreLabel}</h2>
+          <hr className="rule-thin" />
+        </div>
+
+        <p className="rank-blurb">{RANK_BLURBS[rankKey]}</p>
+
+        <div>
+          <p className="kicker" style={{ textAlign: 'left', marginBottom: 8 }}>{tr('proofs')}</p>
+          <div className="scorecard">
+            {answers.map((a, i) => (
+              <div className="score-row" key={i}>
+                <span className={`mark ${a.correct ? 'ok' : 'no'}`}>{a.correct ? '✓' : '✗'}</span>
+                <span className="who">{a.name}</span>
+                <span className="what">{a.isAI ? t('btnAI') : t('btnReal')}</span>
+              </div>
+            ))}
           </div>
         </div>
+
+        <button className="cta" onClick={handleRestart}>
+          {tr('playAgain')} <span style={{ fontWeight: 400 }}>↺</span>
+        </button>
+        <Link
+          href="/"
+          locale={locale}
+          style={{
+            display: 'block', textAlign: 'center', marginTop: 8,
+            fontFamily: 'var(--font-display)', fontSize: 13,
+            letterSpacing: '0.1em', textTransform: 'uppercase',
+            color: 'var(--ink-2)', textDecoration: 'none',
+          }}
+        >
+          {tr('home')}
+        </Link>
       </div>
     );
   }
 
   /* ─── Game screen ─── */
   return (
-    <div className="flex flex-col items-center min-h-screen px-4 py-8">
-
-      {/* Nav bar */}
-      <div className="w-full max-w-2xl mb-6">
-        <div className="flex items-center justify-between mb-4 rule-single pt-2">
+    <div className="page stack" style={{ '--gap': '16px' } as React.CSSProperties}>
+      {/* Meta bar */}
+      <div>
+        <div className="meta-bar">
           <Link
-            href="/"
-            locale={locale}
-            className="font-display text-xs uppercase tracking-widest text-paper-600 hover:text-paper-950 transition-colors"
+            href="/" locale={locale}
+            style={{ color: 'inherit', textDecoration: 'none' }}
           >
-            ← {homeLabel}
+            ← {tr('home')}
           </Link>
-          <span className="font-display text-xs uppercase tracking-widest text-paper-600">
-            {t('round')} {current + 1} / {ROUNDS_PER_GAME}
-          </span>
+          <span className="ornament"><i /><i /><i /></span>
+          <span>{t('round')} {current + 1} / {ROUNDS_PER_GAME}</span>
         </div>
-
-        {/* Progress — thin rules */}
-        <div className="flex gap-1">
-          {Array.from({ length: ROUNDS_PER_GAME }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-0.5 flex-1 transition-colors duration-300 ${
-                i < current        ? 'bg-paper-950' :
-                i === current      ? 'bg-paper-600' :
-                                     'bg-paper-300'
-              }`}
-            />
-          ))}
-        </div>
+        <hr className="rule-thin" />
       </div>
 
-      {/* Author nameplate */}
-      <div className="w-full max-w-2xl mb-5 text-center border-t-4 border-b border-paper-950 py-3">
-        <p className="font-display text-[0.6rem] uppercase tracking-[0.4em] text-paper-600 mb-1">
-          {t('authorLabel')}
-        </p>
-        <h2 className="font-display font-black text-3xl sm:text-4xl text-paper-950 tracking-tight leading-none uppercase">
-          {author.name}
-        </h2>
-        <p className="font-serif italic text-sm text-paper-600 mt-1">{author.knownFor}</p>
+      {/* Pips */}
+      <div className="pips">
+        {Array.from({ length: ROUNDS_PER_GAME }).map((_, i) => (
+          <span
+            key={i}
+            className={`pip${i < current ? ' on' : i === current ? ' cur' : ''}`}
+          />
+        ))}
       </div>
 
-      {/* Text card */}
-      <div
-        className={`w-full max-w-2xl text-card p-8 mb-6 transition-all duration-400 ${
-          revealed
-            ? guess === 'correct' ? 'reveal-correct' : 'reveal-wrong'
-            : ''
-        }`}
-      >
-        {/* Decorative column rule */}
-        <div className="rule-double mb-4" />
+      {/* Author */}
+      <div>
+        <p className="kicker">{t('authorLabel')}</p>
+        <h2 className="author-name">{author.name}</h2>
+      </div>
 
-        <p className="font-serif text-lg leading-relaxed text-paper-950">
-          {snippet.text}
-        </p>
+      {/* Passage */}
+      <div className="clipping">
+        <p className="passage">{snippet.text}</p>
+      </div>
 
-        {/* Reveal section */}
-        {revealed && (
-          <div className="mt-6 pt-5 border-t border-paper-400 animate-reveal">
-            <div className="flex items-start gap-3 mb-3">
-              <span className={`shrink-0 font-display font-bold text-xs uppercase tracking-wider px-2 py-1 border ${
-                guess === 'correct'
-                  ? 'border-paper-700 text-paper-800 bg-paper-100'
-                  : 'border-red-800 text-red-800 bg-red-50'
-              }`}>
-                {guess === 'correct' ? t('correct') : t('wrong')}
-              </span>
-              <p className="font-serif text-sm text-paper-700 leading-snug">
-                {snippet.isAI ? (
-                  <span className="italic">{t('wasAI')}</span>
-                ) : (
-                  <>{t('wasReal')} <em className="text-paper-950">{snippet.source}</em></>
-                )}
-              </p>
-            </div>
-            <div className="dashed-box mt-3">
-              <p className="font-serif text-sm text-paper-800 leading-relaxed">
-                <span className="font-bold not-italic">{t('hint')}</span>{' '}
-                {snippet.hint}
-              </p>
-            </div>
+      {/* Pre-reveal */}
+      {!revealed && (
+        <>
+          <p className="prompt">{t('question')}</p>
+          <div className="choices">
+            <button className={cls('real')} onClick={() => handleGuess(false)}>
+              <span className="main">{t('btnReal')}</span>
+              <span className="sub">{t('btnRealSub')}</span>
+            </button>
+            <button className={cls('fake')} onClick={() => handleGuess(true)}>
+              <span className="main">{t('btnAI')}</span>
+              <span className="sub">{t('btnAISub')}</span>
+            </button>
           </div>
-        )}
-      </div>
-
-      {/* Buttons */}
-      {!revealed ? (
-        <div className="flex gap-4 w-full max-w-2xl">
-          <button
-            onClick={() => handleGuess(false)}
-            className="flex-1 py-4 border-2 border-paper-950 bg-paper-light text-paper-950 font-display font-black text-xs uppercase tracking-widest hover:bg-paper-950 hover:text-paper-100 transition-all duration-200 active:scale-[0.98]"
-          >
-            {t('btnReal')}
-          </button>
-          <button
-            onClick={() => handleGuess(true)}
-            className="flex-1 py-4 border-2 border-paper-950 bg-paper-950 text-paper-100 font-display font-black text-xs uppercase tracking-widest hover:bg-paper-800 transition-all duration-200 active:scale-[0.98]"
-          >
-            {t('btnAI')}
-          </button>
-        </div>
-      ) : (
-        <button
-          onClick={handleNext}
-          className="w-full max-w-2xl py-4 border-2 border-paper-950 text-paper-950 font-display font-bold uppercase tracking-widest text-sm hover:bg-paper-950 hover:text-paper-100 transition-colors"
-        >
-          {current + 1 >= ROUNDS_PER_GAME ? t('finish') : t('next')} →
-        </button>
+        </>
       )}
 
-      {/* Score ticker */}
-      <div className="mt-6 font-display text-xs uppercase tracking-widest text-paper-500">
-        {score} / {current + (revealed ? 1 : 0)} {tr('rounds')}
-      </div>
+      {/* Post-reveal */}
+      {revealed && (
+        <>
+          <div className="choices">
+            <button className={cls('real')} disabled>
+              <span className="main">{t('btnReal')}</span>
+              <span className="sub">{t('btnRealSub')}</span>
+            </button>
+            <button className={cls('fake')} disabled>
+              <span className="main">{t('btnAI')}</span>
+              <span className="sub">{t('btnAISub')}</span>
+            </button>
+          </div>
+
+          <hr className="rule-thin" />
+
+          <div className="verdict stack" style={{ '--gap': '6px' } as React.CSSProperties}>
+            <div className={`rubber${picked === correctChoice ? ' good' : ''}`}>
+              {picked === correctChoice ? t('correct') : t('wrong')}
+            </div>
+            <p className="verdict-line">{snippet.isAI ? t('wasAI') : t('wasReal')}</p>
+            {!snippet.isAI && snippet.source && (
+              <p className="source-line">{snippet.source}</p>
+            )}
+          </div>
+
+          <div className="hint-box">
+            <strong>{t('hint')}</strong> {snippet.hint}
+          </div>
+
+          <button className="cta" onClick={handleNext}>
+            {isLast ? t('finish') : t('next')} <span style={{ fontWeight: 400 }}>→</span>
+          </button>
+        </>
+      )}
     </div>
   );
 }

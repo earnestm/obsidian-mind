@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { getAuthorsForLocale } from '@/data/index';
 import type { Locale } from '@/types/game';
+import { ROUNDS_PER_GAME } from '@/types/game';
 import { routing } from '@/i18n/routing';
 import AuthorSelect from '@/components/AuthorSelect';
 
@@ -10,10 +11,21 @@ export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+function SunMark() {
+  return (
+    <svg width="54" height="27" viewBox="0 0 54 27">
+      <g stroke="var(--brick)" strokeWidth="1.3" fill="none" strokeLinecap="round">
+        <path d="M3 26 H51" />
+        <path d="M27 26 V7" />
+        <path d="M27 7 L18 26 M27 7 L36 26 M27 7 L11 26 M27 7 L43 26 M27 7 L27 26" />
+      </g>
+    </svg>
+  );
+}
+
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const t  = await getTranslations({ locale, namespace: 'home' });
-  const tn = await getTranslations({ locale, namespace: 'nav' });
   const tl = await getTranslations({ locale, namespace: 'languages' });
 
   const authors = await getAuthorsForLocale(locale as Locale);
@@ -25,77 +37,107 @@ export default async function HomePage({ params }: Props) {
   }));
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       {/* Masthead nav */}
-      <nav className="px-6 pt-5 pb-3 border-b border-paper-950">
-        <div className="flex items-center justify-between mb-2">
-          {/* Blackletter-style masthead */}
-          <span className="font-display font-black text-sm uppercase tracking-widest text-paper-950">
-            Literary Challenge
-          </span>
-          {/* Language pills */}
-          <div className="flex items-center gap-1">
+      <nav style={{ padding: '14px 20px 0' }}>
+        <div className="meta-bar">
+          <span style={{ fontStyle: 'italic' }}>Est. MMXXVI</span>
+          <span className="ornament"><i /><i /><i /></span>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
             {languageOptions.map((lang) => (
               <a
                 key={lang.code}
-                href={`/${lang.code}`}
-                className={`font-display text-[0.6rem] uppercase tracking-widest px-2 py-1 border transition-colors ${
-                  lang.active
-                    ? 'border-paper-950 bg-paper-950 text-paper-100'
-                    : 'border-paper-400 text-paper-600 hover:border-paper-950 hover:text-paper-950'
-                }`}
+                href={`/${lang.code === routing.defaultLocale ? '' : lang.code}`}
+                className={`lang-pill${lang.active ? ' active' : ''}`}
               >
                 {lang.label}
               </a>
             ))}
           </div>
         </div>
-        {/* Double rule under masthead */}
-        <div className="border-t-4 border-double border-paper-950" />
+        <hr className="rule-double" />
       </nav>
 
-      {/* Hero */}
-      <div className="flex-1 flex flex-col items-center px-4 pt-10 pb-8">
+      {/* Content */}
+      <div style={{
+        flex: 1, display: 'flex', flexDirection: 'column',
+        alignItems: 'center', padding: '32px 20px 56px',
+      }}>
+        <div
+          className="stack"
+          style={{ width: '100%', maxWidth: 640, '--gap': '20px' } as React.CSSProperties}
+        >
+          <p className="kicker">{t('kicker')}</p>
 
-        {/* Big editorial headline */}
-        <div className="text-center mb-3 max-w-2xl">
-          <h1 className="font-display font-black text-[clamp(3.5rem,12vw,7rem)] leading-[0.9] tracking-tight text-paper-950 uppercase mb-4">
+          <h1 className="nameplate" style={{ fontSize: 'clamp(3rem, 13vw, 5.5rem)' }}>
             {t('headline')}
           </h1>
-          {/* Decorative rule */}
-          <div className="flex items-center gap-3 justify-center mb-4">
-            <div className="h-px flex-1 max-w-[4rem] bg-paper-950" />
-            <p className="font-serif italic text-base text-paper-700">{t('tagline')}</p>
-            <div className="h-px flex-1 max-w-[4rem] bg-paper-950" />
-          </div>
-          {/* Dashed box for description */}
-          <div className="dashed-box max-w-md mx-auto mb-8">
-            <p className="font-serif text-sm text-paper-800 leading-relaxed">{t('subtitle')}</p>
-          </div>
-        </div>
 
-        <AuthorSelect
-          authors={authors}
-          locale={locale as Locale}
-          t_choose={t('chooseAuthor')}
-          t_rounds={t('rounds')}
-          t_random={t('randomChallenge')}
-        />
+          <div>
+            <hr className="rule-thin" />
+            <p className="dateline">{t('tagline')}</p>
+            <hr className="rule-thin" />
+          </div>
+
+          <p className="dropcap">{t('subtitle')}</p>
+
+          {/* Stamp */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <figure className="stamp" style={{ margin: 0 }}>
+              <div className="inner">
+                <div style={{ width: 54, height: 27, margin: '0 auto 6px', overflow: 'hidden' }}>
+                  <SunMark />
+                </div>
+                <div className="sig">Real or AI?</div>
+                <div className="meta">Est. MMXXVI</div>
+              </div>
+            </figure>
+          </div>
+
+          {/* Stats */}
+          <div className="stats">
+            <div className="stat">
+              <div className="n">{ROUNDS_PER_GAME}</div>
+              <div className="l">Rounds</div>
+            </div>
+            <div className="stat">
+              <div className="n">{authors.length}</div>
+              <div className="l">{t('authors')}</div>
+            </div>
+            <div className="stat">
+              <div className="n">0</div>
+              <div className="l">Mercy</div>
+            </div>
+          </div>
+
+          <AuthorSelect
+            authors={authors}
+            locale={locale as Locale}
+            t_choose={t('chooseAuthor')}
+            t_rounds={t('rounds')}
+            t_random={t('randomChallenge')}
+          />
+        </div>
       </div>
 
-      {/* Footer rule */}
-      <footer className="px-6 py-5 border-t border-paper-950 flex items-center justify-between">
-        <p className="font-serif text-xs text-paper-600">
-          Texts from{' '}
-          <a href="https://www.gutenberg.org" className="underline hover:text-paper-950" target="_blank" rel="noopener noreferrer">
-            Project Gutenberg
-          </a>
-          . AI texts generated for educational purposes.
-        </p>
-        <p className="font-display text-[0.55rem] uppercase tracking-widest text-paper-400">
-          {authors.length} {t('authors')}
-        </p>
+      {/* Footer */}
+      <footer style={{ padding: '12px 20px', borderTop: '1px solid rgba(27,25,17,.3)' }}>
+        <div className="meta-bar" style={{ paddingBottom: 0 }}>
+          <span style={{ fontStyle: 'italic' }}>
+            Texts from{' '}
+            <a
+              href="https://www.gutenberg.org"
+              style={{ color: 'inherit' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Project Gutenberg
+            </a>
+            . AI texts for educational purposes.
+          </span>
+          <span>{t('rounds')}</span>
+        </div>
       </footer>
     </main>
   );
