@@ -25,6 +25,6 @@ export interface RoundState {
   revealed: boolean;
 }
 
-export type Locale = 'en' | 'fr' | 'de' | 'it' | 'sr';
+export type Locale = 'en' | 'fr' | 'de' | 'it' | 'sr' | 'nf';
 
 export const ROUNDS_PER_GAME = 10;

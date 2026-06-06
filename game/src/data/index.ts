@@ -54,6 +54,14 @@ const authorLoaders: Record<Locale, () => Promise<Author[]>> = {
     ]);
     return [njegos, karadzic, sekulic];
   },
+  nf: async () => {
+    const [speeches, advertising, journalism] = await Promise.all([
+      import('./nf/speeches').then((m) => m.default),
+      import('./nf/advertising').then((m) => m.default),
+      import('./nf/journalism').then((m) => m.default),
+    ]);
+    return [speeches, advertising, journalism];
+  },
 };
 
 export async function getAuthorsForLocale(locale: Locale): Promise<Author[]> {

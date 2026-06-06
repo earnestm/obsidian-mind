@@ -17,6 +17,8 @@ const ALL_AUTHOR_IDS = [
   'verga', 'manzoni', 'pirandello', 'deledda',
   // sr
   'njegos', 'karadzic', 'sekulic',
+  // nf
+  'speeches', 'advertising', 'journalism',
 ];
 
 export async function generateStaticParams() {
