@@ -65,3 +65,16 @@ rejected by the user as useless for learning ("AI approximates *contemporary* wr
 4. Commit + push to branch `claude/ai-literature-game-multilingual-Sm9WX`.
 5. Delete this `_sources_staging/` folder in the final commit (it's scaffolding, not app code).
 6. Remind the user to sync `game/` → `earnestm/miming` for Vercel deploy.
+
+## TELLS reference (added)
+`_sources_staging/TELLS.md` is the user's curated "BANNED" style guide — a large catalog
+of AI/generic-prose tells (Part 1 Constructions, Part 2 Words/Phrases, etc.). USE IT to
+write sharper `hint` explainers and more convincing AI foils.
+- For the NON-FICTION decks, mine the structural entries: Negation Formula ("not X, but Y"),
+  Triple-Beat Lists, False Range Construction ("from X to Y"), Vague Interiority Placeholders,
+  Faux-Intellectual Aphorism, Hollow Restraint, Superficial Analysis as Narration,
+  Meta-Narrative Intrusion, Gravitational/Impact metaphors, Quality/Texture defaults.
+- The fiction-specific entries (physical emotion tells, dialogue-tag adverbs, gaze descriptors)
+  are more relevant if the LITERARY decks are ever reworked — not the non-fiction ones.
+- When writing a hint, name the specific tell from TELLS.md that the AI passage commits, and
+  contrast it with the concrete, checkable specificity of the real human excerpt.
