@@ -2,101 +2,82 @@ import type { Author } from '@/types/game';
 
 const domain: Author = {
   id: 'speeches',
-  name: 'Political Speeches',
-  years: '1863–1961',
-  nationality: 'American Politics',
-  knownFor: 'Presidential rhetoric and public address',
+  name: 'Speeches',
+  years: '2024–2026',
+  nationality: 'Heads of Government & Public Life',
+  knownFor: 'Political addresses and public statements',
   snippets: [
     {
       id: 'speeches-r1',
-      text: `Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
-
-Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.
-
-But, in a larger sense, we can not dedicate — we can not consecrate — we can not hallow — this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract.`,
+      text: `Solidarity, social friendship, and gratuitous love can open up new horizons in politics, economics, and civil life. We live in times of wicked wars, growing inequality, while very small oligarchies amass power superior to that of many sovereign states. It is from the humanity of women and men that we can draw the energy to reject conformity, passivity, hatred, and aversion to diversity and foreigners, and to educate for peace. I hope the Meeting, and all those who will participate in the Rimini days, will continue to generously build horizons of humanity.`,
       isAI: false,
-      source: 'Abraham Lincoln, Gettysburg Address, November 19, 1863',
-      hint: 'Lincoln\'s triple negation — "we can not dedicate — we can not consecrate — we can not hallow" — performs the argument it makes: three synonyms exhausted in order to demonstrate the inadequacy of ceremony before the fact of the dead. Each word is slightly different in register. The speech works by establishing what it cannot do, which is the deepest form of honoring what was done.',
+      source: 'President Sergio Mattarella, message to the Rimini Meeting (via ANSA), Italy, 21 August 2026 — ansa.it (short excerpt)',
+      hint: `A real address carries the speaker's idiosyncratic register — "gratuitous love," "wicked wars," "horizons of humanity" — phrasing translated from a specific person's Italian, not smoothed into international boilerplate. And it names a concrete target: "very small oligarchies amass power superior to that of many sovereign states." AI speechwriting reaches for "shared values" and "a brighter future"; a human speaker reaches for an unusual word and a pointed claim.`,
     },
     {
       id: 'speeches-r2',
-      text: `This is preeminently the time to speak the truth, the whole truth, frankly and boldly. Nor need we shrink from honestly facing conditions in our country today. This great Nation will endure as it has endured, will revive and will prosper. So, first of all, let me assert my firm belief that the only thing we have to fear is fear itself — nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance.
-
-In such a spirit on my part and on yours we face our common difficulties. They concern, thank God, only material things. Values have shrunken to fantastic levels; taxes have risen; our ability to pay has fallen; government of all kinds is faced by serious curtailment of income; the means of exchange are frozen in the currents of trade; the withered leaves of industrial enterprise lie on every side; farmers find no markets for their produce; the savings of many years in thousands of families are gone.`,
+      text: `Almost 70 years ago, in April 1956, this room was the setting of a major Cold War summit. Where Nikita Khrushchev came, after Stalin's death, with a delegation from the USSR. On the way here he stopped by Claridge's. Clearly nothing is too good for the workers. Before coming for dinner here, with Clement Attlee and Anthony Eden. Mansion House was done up, looking its finest. The Lord Mayor gave a speech. And the team put on a delicious spread, as always. It was a huge effort. But we know now, looking back at history…the charm offensive didn't really work.`,
       isAI: false,
-      source: 'Franklin D. Roosevelt, First Inaugural Address, March 4, 1933',
-      hint: '"Fear itself — nameless, unreasoning, unjustified terror" is a phrase that earns its aphoristic quality by immediately defining the thing it names. The catalogue that follows is specific economic inventory: shrunken values, fallen ability to pay, frozen exchange, withered leaves of enterprise, no markets, savings gone. FDR does not say the economy is struggling; he catalogs the specific material forms of the struggle. The phrase "thank God, only material things" is a theological move no AI would improvise.',
+      source: 'Peter Kyle MP, Mansion House Speech (gov.uk, Open Government Licence), United Kingdom, 3 September 2025 — gov.uk',
+      hint: `The dry aside is the giveaway of a human writer: "On the way here he stopped by Claridge's. Clearly nothing is too good for the workers." That's a joke a person makes, timed with sentence fragments and a trailing "…the charm offensive didn't really work." It's anchored to specific history (April 1956, Khrushchev, Attlee, Eden). AI speeches don't risk irony or a specific dated anecdote; they stay earnest and general.`,
     },
     {
       id: 'speeches-r3',
-      text: `Let every nation know, whether it wishes us well or ill, that we shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe, in order to assure the survival and the success of liberty.
+      text: `Take the Drive Partnership. Now, this is a fantastic initiative led by a coalition of civil society organisations. They've worked with the police to tackle the drivers of domestic abuse – a really serious issue, hard to deal with, and it is integral to the work we're doing in government in our Safer Streets mission.
 
-This much we pledge — and more.
+So today, working together in the spirit of partnership, we're announcing a £53 million investment to roll out the Drive Project nationally across England and Wales.
 
-To those old allies whose cultural and spiritual origins we share, we pledge the loyalty of faithful friends. United there is little we cannot do in a host of cooperative ventures. Divided there is little we can do — for we dare not meet a powerful challenge at odds and split asunder.
-
-To those new states whom we welcome to the ranks of the free, we pledge our word that one form of colonial control shall not have passed away merely to be replaced by a far more iron tyranny.`,
+Delivering together in partnership, taking forward the initiative that you've brought forward to us and recognising your power to reach into places government can't.`,
       isAI: false,
-      source: 'John F. Kennedy, Inaugural Address, January 20, 1961',
-      hint: 'The four-beat anaphora — "pay any price, bear any burden, meet any hardship, support any friend" — is designed to be spoken, each stress landing on the operative word. JFK then makes structural use of division: "United there is little we cannot do... Divided there is little we can do." The speech moves outward in concentric rings of obligation: old allies, new states, people in huts and villages — each ring receives a specific pledge. The architecture is geopolitical, not rhetorical.',
+      source: 'Prime Minister Keir Starmer, Civil Society Summit (gov.uk, Open Government Licence), United Kingdom, 17 July 2025 — gov.uk',
+      hint: `A real policy speech names the specific programme (the Drive Partnership), the specific sum (£53 million), and the specific scope (England and Wales). The slightly halting delivery — "a really serious issue, hard to deal with" — reads as a person talking, not a script. AI-written political speech announces "significant investment" in "vital initiatives" without ever landing on the programme's name or the number of pounds.`,
     },
     {
       id: 'speeches-r4',
-      text: `With malice toward none, with charity for all, with firmness in the right as God gives us to see the right, let us strive on to finish the work we are in, to bind up the nation's wounds, to care for him who shall have borne the battle and for his widow, and his orphan — to do all which may achieve and cherish a just and lasting peace among ourselves and with all nations.`,
+      text: `We will honour the commitment made by the previous government… to provide £11.6 billion in of climate finance between April 2021 and March 2026…. But we must use public finance as a multiplier… To unlock much more private investment… And reform our international financial institutions. Today we launch the new CIF Capital Market Mechanism, listed on the London Stock Exchange… With the potential to mobilise up to $75 billion… in additional climate capital for developing countries over the next decade.`,
       isAI: false,
-      source: 'Abraham Lincoln, Second Inaugural Address, March 4, 1865',
-      hint: 'The entire speech has been building to this closing sentence, which is one of the longest syntactic units in American political oratory. It moves from disposition ("with malice toward none") to action ("let us strive") to specific care ("him who shall have borne the battle and for his widow, and his orphan") to the horizon ("lasting peace"). The precision of "his widow, and his orphan" — not widows and orphans in the abstract, but the widow and orphan of a specific him — is Lincoln\'s characteristic move from category to person.',
-    },
-    {
-      id: 'speeches-r5',
-      text: `Yesterday, December 7, 1941 — a date which will live in infamy — the United States of America was suddenly and deliberately attacked by naval and air forces of the Empire of Japan.
-
-The United States was at peace with that nation, and, at the solicitation of Japan, was still in conversation with its Government and its Emperor looking toward the maintenance of peace in the Pacific. Indeed, one hour after Japanese air squadrons had commenced bombing in the American island of Oahu, the Japanese Ambassador to the United States and his colleague delivered to our Secretary of State a formal reply to a recent American message. And while this reply stated that it seemed useless to continue the existing diplomatic negotiations, it contained no threat or hint of an attack or armed action.`,
-      isAI: false,
-      source: 'Franklin D. Roosevelt, Address to Congress, December 8, 1941',
-      hint: '"A date which will live in infamy" is embedded as a parenthetical — a relative clause inside a declarative sentence — rather than announced as the speech\'s theme. The diplomatic accounting that follows is specific to the hour: the ambassador\'s delivery of a formal reply while the attack was already underway. FDR does not say Japan behaved treacherously; he describes the timeline and lets the gap between the diplomacy and the bombs carry the weight.',
+      source: 'Prime Minister Keir Starmer, National Statement at COP29 (gov.uk, Open Government Licence), United Kingdom / Baku, 12 November 2024 — gov.uk',
+      hint: `The passage is specific to the point of naming a financial instrument — "the new CIF Capital Market Mechanism, listed on the London Stock Exchange" — with exact figures (£11.6 billion, "$75 billion," dated to "April 2021 and March 2026"). Even a small transcription artefact ("£11.6 billion in of climate finance") betrays a real human transcript. AI climate rhetoric offers "ambitious commitments" and "bold action"; this offers a listed vehicle and a decade.`,
     },
     {
       id: 'speeches-ai1',
-      text: `My fellow citizens, we stand today at a pivotal moment in our nation's history. The challenges we face are real and they are serious. But I want you to know this: I have never been more confident in our ability to meet them.
+      text: `My friends, we gather here today at a pivotal moment in our shared journey. The challenges before us are real, but so too is our capacity to meet them — together, with courage, with unity, and with an unwavering belief in a better tomorrow.
 
-We are a resilient people. We are an innovative people. We are a people who have always risen to the occasion when our values were tested. And today, our values are being tested once again.
+Let me be clear: the road ahead will not be easy. But history has shown us, time and again, that when we stand together, there is nothing we cannot achieve. We owe it to ourselves, and to future generations, to rise to this moment.
 
-The path forward will not be easy. It will require sacrifice. It will require courage. It will require each of us to look beyond our differences and see what unites us as Americans. But I believe, with every fiber of my being, that if we come together — if we choose unity over division, hope over fear, progress over the politics of the past — there is no challenge we cannot overcome.`,
+So let us move forward — not with fear, but with hope. Not divided, but united. For the future is ours to shape, and the time to act is now.`,
       isAI: true,
-      hint: '"I have never been more confident" and "with every fiber of my being" are placeholder phrases — rhetorical intensity without rhetorical pressure. The three-beat anaphora ("We are a resilient people. We are an innovative people.") assembles the correct form but the nouns are generic virtues, not specific historical claims. Compare FDR\'s "the only thing we have to fear is fear itself" — a paradox that must be unpacked — against "choose unity over division, hope over fear": the AI has generated the antitheses correctly but produced ones so expected they have no cutting edge. Great political rhetoric names specific things and specific enemies; this names only abstractions.',
+      hint: `This could be delivered by anyone, anywhere, about anything — which is exactly the problem. There is no programme, no figure, no place, no dated fact, no person. It runs on rally-cadence tricolons ("with courage, with unity, and with an unwavering belief") and stock uplift ("a better tomorrow," "the time to act is now," "Let me be clear"). A real speech commits to a specific thing it will do; this commits only to a mood.`,
     },
     {
       id: 'speeches-ai2',
-      text: `To our allies across the Atlantic and Pacific, I say this: America will not turn away. We remain committed to the values that bind free nations together — democracy, human dignity, the rule of law. These are not merely American values. They are universal values, hard-won over centuries of struggle and sacrifice.
+      text: `Today, we stand at a crossroads. The decisions we make now will shape the world our children inherit. That is why we must come together — across borders, across divides — to build a future rooted in fairness, opportunity, and dignity for all.
 
-To our adversaries, let me be equally clear: we will defend what we have built. Not with aggression, but with resolve. Not with threats, but with the demonstrated strength of a united people.
+We know the challenges are complex and the stakes are high. But we also know that progress is possible when we choose collaboration over conflict, and hope over despair.
 
-And to the citizens of this nation who have placed their trust in us: we hear you. We see the burdens you carry. We will not rest until the promise of this country is accessible to every family in every corner of this land.`,
+Let us seize this opportunity with both hands. Let us prove that, even in uncertain times, humanity is capable of extraordinary things. Together, we can and we will build a brighter, more inclusive world for generations to come.`,
       isAI: true,
-      hint: 'The structure is correct — allies, adversaries, citizens, each addressed in turn — but each ring receives a generic pledge. JFK\'s inaugural addresses specific concentric groups with specific obligations ("to those new states... we pledge our word that one form of colonial control shall not merely be replaced by a far more iron tyranny"). This version pledges commitment to democracy and dignity — values so broadly held that pledging to them costs nothing and means nothing. "The demonstrated strength of a united people" is sound without referent. The speech answers every rhetorical question it asks without surprising anyone.',
+      hint: `"We stand at a crossroads," "the world our children inherit," "a future rooted in fairness, opportunity, and dignity" — every phrase is a prefabricated module. The passage names no policy and no number because it was generated to sound statesmanlike rather than to announce anything. The repeated "Let us…" and "Together, we can and we will" are rhythm standing in for content. Compare a real speech, which would tell you the sum and the scheme.`,
     },
     {
       id: 'speeches-ai3',
-      text: `We gather here today not only to honor those who have fallen, but to rededicate ourselves to the principles for which they fought. They believed in something larger than themselves. They believed in a future they would not live to see. And in that belief, they gave us everything.
+      text: `It is a profound honour to be here with you all today. As I look out across this room, I am reminded of the incredible power of community — of what we can accomplish when we come together in pursuit of a common goal.
 
-We owe them a debt that can never be fully repaid. But we can honor it. We can honor it by refusing to let their sacrifice be in vain. We can honor it by committing ourselves — each of us, in our own way — to the ongoing work of building a more just, a more equal, a more compassionate society.
+Over the past year, we have faced our share of challenges. But through it all, we have remained resilient, guided by our values and our shared commitment to doing what is right.
 
-That is the only memorial equal to what they did. Not monuments, not words, but action. Not ceremony, but commitment.`,
+As we look to the future, let us carry that spirit forward. Let us continue to lift one another up, to champion those who need it most, and to never lose sight of the values that unite us. Thank you, and may we go forward together.`,
       isAI: true,
-      hint: 'Lincoln\'s Gettysburg Address addresses the same rhetorical problem — how to honor the dead at a dedication ceremony — and solves it by arguing that the ceremony cannot honor the dead and that only the continuation of the cause can. This passage reaches the same conclusion ("not monuments, not words, but action") but announces it as an epigram rather than earning it through argument. "They believed in a future they would not live to see" is a well-formed sentiment; Lincoln\'s equivalent move is specific ("that nation, or any nation so conceived and so dedicated, can long endure") — a conditional about democratic governance, not a general tribute to selflessness.',
+      hint: `A real "thank you" speech is full of particular people, a specific achievement, a named year's events. This one gestures at "our share of challenges" and "the values that unite us" without ever naming a challenge or a value. "The incredible power of community," "lift one another up," "champion those who need it most" are warm, weightless, and interchangeable. The absence of a single concrete referent is the fingerprint.`,
     },
     {
       id: 'speeches-ai4',
-      text: `There are those who say the American dream is over. There are those who claim that our best days are behind us, that the problems we face are too great, the divisions too deep, the challenges too formidable for any generation to overcome.
+      text: `Ladies and gentlemen, we live in a time of unprecedented change. The pace of transformation touches every aspect of our lives, presenting both remarkable opportunities and significant challenges.
 
-I am not among them.
+Now, more than ever, we must embrace innovation while never losing sight of our core principles. We must ensure that progress serves everyone — leaving no one behind — and that the benefits of this new era are shared by all.
 
-I believe in the American people. I have seen their resilience. I have witnessed their generosity. I have felt the power of their determination when they set their minds to a common purpose.
-
-This country has faced hard moments before. And every time — every single time — the American people have risen to the occasion. Not because someone told them to. Not because a politician asked them to. But because it is in our nature, as Americans, to refuse to accept defeat.`,
+This is not a task for government alone, nor for any one sector. It is a shared responsibility, one that calls on each of us to play our part. Together, let us shape a future defined not by division, but by our common humanity and our boundless potential.`,
       isAI: true,
-      hint: '"There are those who say... I am not among them" is the most common opening structure in AI-generated political speeches because it establishes opposition and position in one move. But note: there are no named adversaries, no specific claim attributed to the unnamed critics. The repetition of "I have seen / I have witnessed / I have felt" generates anaphoric momentum without accumulating evidence. "It is in our nature, as Americans, to refuse to accept defeat" closes with a national-character claim that cannot be proved or disproved. Great political speeches make falsifiable claims — Lincoln\'s speech stakes the whole question of democratic legitimacy on the outcome of the war; this speech stakes nothing.',
+      hint: `"A time of unprecedented change," "remarkable opportunities and significant challenges," "leaving no one behind," "our boundless potential" — a full house of AI speech clichés. It even performs even-handedness ("not a task for government alone, nor for any one sector") to avoid committing to who does what. Real speeches on change name the technology, the law, or the pound figure; this one names nothing and lets the abstractions carry the applause.`,
     },
   ],
 };
