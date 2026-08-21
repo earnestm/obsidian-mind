@@ -55,12 +55,26 @@ const authorLoaders: Record<Locale, () => Promise<Author[]>> = {
     return [njegos, karadzic, sekulic];
   },
   nf: async () => {
-    const [speeches, advertising, journalism] = await Promise.all([
+    const [
+      speeches, advertising, journalism, govNotices, manuals,
+      policyBriefs, whitePapers, grants, investigative, thinkPieces, pressReleases,
+    ] = await Promise.all([
       import('./nf/speeches').then((m) => m.default),
       import('./nf/advertising').then((m) => m.default),
       import('./nf/journalism').then((m) => m.default),
+      import('./nf/gov-notices').then((m) => m.default),
+      import('./nf/manuals').then((m) => m.default),
+      import('./nf/policy-briefs').then((m) => m.default),
+      import('./nf/white-papers').then((m) => m.default),
+      import('./nf/grants').then((m) => m.default),
+      import('./nf/investigative').then((m) => m.default),
+      import('./nf/think-pieces').then((m) => m.default),
+      import('./nf/press-releases').then((m) => m.default),
     ]);
-    return [speeches, advertising, journalism];
+    return [
+      speeches, advertising, journalism, govNotices, manuals,
+      policyBriefs, whitePapers, grants, investigative, thinkPieces, pressReleases,
+    ];
   },
 };
 

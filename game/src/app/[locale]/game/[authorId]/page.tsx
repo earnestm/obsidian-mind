@@ -8,9 +8,9 @@ type Props = { params: Promise<{ locale: string; authorId: string }> };
 
 const ALL_AUTHOR_IDS = [
   // en
-  'austen', 'bronte', 'doyle', 'joyce', 'fielding', 'woolf',
+  'austen', 'bronte', 'doyle', 'joyce', 'fielding', 'woolf', 'twain', 'hemingway', 'hammett',
   // fr
-  'flaubert', 'maupassant', 'zola', 'sand', 'colette',
+  'flaubert', 'maupassant', 'zola', 'sand', 'colette', 'proust', 'hugo',
   // de
   'kafka', 'goethe', 'mann', 'droste',
   // it
@@ -19,6 +19,8 @@ const ALL_AUTHOR_IDS = [
   'njegos', 'karadzic', 'sekulic',
   // nf
   'speeches', 'advertising', 'journalism',
+  'gov-notices', 'manuals', 'policy-briefs', 'white-papers',
+  'grants', 'investigative', 'think-pieces', 'press-releases',
 ];
 
 export async function generateStaticParams() {
