@@ -35,6 +35,19 @@ this folder for the full catalog. Headlines:
   passage for the reveal card.
 
 ## 3. PLAYTEST VERDICTS → PUNCH LIST (priority order)
+0. **CRITICAL — game is 100% winnable without reading (answer-key leak).**
+   All 28 pairs store human as `samples.a`, machine as `samples.b` (in both `data/` and
+   `public/data/`). `SamplePanel.tsx:28` `const label = side.toUpperCase()` binds the letter to
+   the JSON key; `Feedback.tsx:33` hardcodes "B was the machine"; `Game.tsx:40-47` shuffles the
+   columns but the letter + correct answer ride with the key. Result: "B is the machine" is always
+   correct. FIX (per round, one source of truth, decoupled from the key):
+   (a) coin-flip the pair into positions [pos0,pos1]; (b) assign letters by POSITION (pos0→A,
+   pos1→B) — also fixes the "B,A" ordering; (c) compute `machineLetter` = letter of the machine
+   passage, store on the round; (d) SamplePanel label from position, not the key; (e) answer
+   correct ⇔ `guess === round.machineLetter`; (f) Feedback uses `round.machineLetter`, no hardcoded
+   "B"; (g) add a test asserting correct answer is ~50/50 A/B and nothing assumes a fixed key.
+   Minimal alt: randomise which key holds human/machine per round, record `machineKey`, and make
+   answer-check + feedback read it instead of literal 'b'.
 1. **Difficulty is the #1 problem.** The corpus approach in §2 is the fix. AI foils currently
    telegraph themselves (formulaic openers; no figures). Use real strong-model output; match pairs.
 2. **Add a single-passage mode** ("is THIS real or AI?") as the hero, shareable format (Instagram
